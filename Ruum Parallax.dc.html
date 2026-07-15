@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+  body{margin:0; background:oklch(12% 0 0); font-family:'Public Sans',sans-serif;}
+  @keyframes ruum-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
+  a{color:inherit; text-decoration:none;}
+</style>
+</helmet>
+
+<div ref="{{ setRoot }}" style="background:oklch(12% 0 0); color:oklch(96% 0 0); overflow:hidden;">
+
+  <!-- NAV -->
+  <div style="position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:20px 48px; background:linear-gradient(oklch(12% 0 0 / 0.85), transparent); backdrop-filter:blur(6px);">
+    <img src="assets/ruum_logo_black.png" alt="ruum" style="height:22px; width:auto; flex-shrink:0; filter:invert(1);">
+    <div style="display:flex; gap:22px; font-size:12.5px; letter-spacing:0.02em; color:oklch(90% 0 0); white-space:nowrap; flex-shrink:0;">
+      <span>Proyectos</span>
+      <span>Recorridos 3D</span>
+      <span>Cómo funciona</span>
+      <span>Contacto</span>
+    </div>
+    <div style="padding:10px 22px; background:oklch(70% 0.12 55); color:oklch(12% 0 0); font-size:12.5px; font-weight:600; border-radius:100px; white-space:nowrap; flex-shrink:0;">Agendar demo</div>
+  </div>
+
+  <!-- HERO -->
+  <div data-hero style="position:relative; height:100vh; overflow:hidden; display:flex; align-items:center;">
+    <div data-hero-img style="position:absolute; top:-15%; left:0; right:0; height:130%; background:
+        repeating-linear-gradient(115deg, oklch(28% 0.01 250 / 0.5) 0 2px, transparent 2px 16px),
+        linear-gradient(160deg, oklch(24% 0.02 250), oklch(14% 0.01 250) 60%);">
+      <span style="position:absolute; top:100px; right:48px; font-family:ui-monospace,monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(60% 0.01 250);">Video / render 3D — skyline nocturno</span>
+    </div>
+    <div style="position:absolute; inset:0; background:linear-gradient(to top, oklch(12% 0 0) 10%, transparent 50%);"></div>
+    <div style="position:relative; padding:80px 64px 40px; max-width:720px;">
+      <div style="font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:oklch(70% 0.12 55); margin-bottom:16px;">PropTech · Recorridos 3D</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:clamp(32px,4.6vw,58px); line-height:1.08; letter-spacing:-0.01em; margin-bottom:20px;">Los proyectos más ambiciosos del mundo, documentados en tres dimensiones.</div>
+      <div style="font-size:16px; line-height:1.55; color:oklch(78% 0 0); max-width:520px; margin-bottom:26px;">ruum convierte cada etapa de construcción en un recorrido 3D navegable, con disponibilidad de unidades actualizada en tiempo real.</div>
+      <div style="display:flex; gap:16px;">
+        <div style="padding:13px 28px; background:oklch(70% 0.12 55); color:oklch(12% 0 0); font-size:13.5px; font-weight:600; border-radius:100px;">Explorar proyectos</div>
+        <div style="padding:13px 28px; border:1px solid oklch(50% 0 0); border-radius:100px; font-size:13.5px; font-weight:500;">Ver recorrido 3D</div>
+      </div>
+    </div>
+    <div style="position:absolute; bottom:34px; left:50%; transform:translateX(-50%); width:22px; height:34px; border:1.5px solid oklch(60% 0 0); border-radius:14px; display:flex; justify-content:center; padding-top:6px;">
+      <div style="width:3px; height:8px; background:oklch(70% 0.12 55); border-radius:2px; animation:ruum-bounce 1.6s ease-in-out infinite;"></div>
+    </div>
+  </div>
+
+  <!-- STATEMENT -->
+  <div style="padding:180px 64px; max-width:1100px; margin:0 auto; text-align:center;">
+    <div style="font-family:'Space Grotesk',sans-serif; font-weight:500; font-size:42px; line-height:1.35; color:oklch(92% 0 0);">Desde Nueva York hasta Dubái, registramos la obra con la misma precisión: plano por plano, piso por piso, unidad por unidad.</div>
+  </div>
+
+  <!-- REFERENCE HEADER -->
+  <div style="padding:0 64px 90px; max-width:1100px;">
+    <div style="font-size:13px; letter-spacing:0.16em; text-transform:uppercase; color:oklch(70% 0.12 55); margin-bottom:18px;">Referencias globales</div>
+    <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:40px;">Estándar internacional, en cada proyecto.</div>
+  </div>
+
+  <!-- REVEAL PANEL 1 -->
+  <div data-reveal style="position:relative; height:100vh; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">
+    <div data-reveal-img style="position:absolute; inset:0; overflow:hidden; background:
+        repeating-linear-gradient(115deg, oklch(30% 0.02 250 / 0.5) 0 2px, transparent 2px 16px),
+        linear-gradient(150deg, oklch(26% 0.02 250), oklch(15% 0.01 250) 65%);
+        display:flex; align-items:center; justify-content:center;">
+      <span style="font-family:ui-monospace,monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(65% 0.01 250);">Foto — One57, Nueva York</span>
+    </div>
+    <div data-reveal-label style="position:absolute; left:64px; bottom:56px; display:flex; align-items:baseline; gap:16px;">
+      <span style="font-family:'Space Grotesk',sans-serif; font-size:20px; color:oklch(70% 0.12 55);">01</span>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:30px;">One57</div>
+        <div style="font-size:14px; color:oklch(75% 0 0); margin-top:4px;">Nueva York, Estados Unidos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVEAL PANEL 2 -->
+  <div data-reveal style="position:relative; height:100vh; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">
+    <div data-reveal-img style="position:absolute; inset:0; overflow:hidden; background:
+        repeating-linear-gradient(115deg, oklch(32% 0.03 145 / 0.4) 0 2px, transparent 2px 16px),
+        linear-gradient(150deg, oklch(24% 0.03 145), oklch(14% 0.01 145) 65%);
+        display:flex; align-items:center; justify-content:center;">
+      <span style="font-family:ui-monospace,monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(65% 0.01 145);">Foto — Bosco Verticale, Milán</span>
+    </div>
+    <div data-reveal-label style="position:absolute; left:64px; bottom:56px; display:flex; align-items:baseline; gap:16px;">
+      <span style="font-family:'Space Grotesk',sans-serif; font-size:20px; color:oklch(70% 0.12 55);">02</span>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:30px;">Bosco Verticale</div>
+        <div style="font-size:14px; color:oklch(75% 0 0); margin-top:4px;">Milán, Italia</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVEAL PANEL 3 -->
+  <div data-reveal style="position:relative; height:100vh; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">
+    <div data-reveal-img style="position:absolute; inset:0; overflow:hidden; background:
+        repeating-linear-gradient(115deg, oklch(30% 0.02 230 / 0.4) 0 2px, transparent 2px 16px),
+        linear-gradient(150deg, oklch(23% 0.02 230), oklch(13% 0.01 230) 65%);
+        display:flex; align-items:center; justify-content:center;">
+      <span style="font-family:ui-monospace,monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(65% 0.01 230);">Foto — Marina Bay Sands Residences, Singapur</span>
+    </div>
+    <div data-reveal-label style="position:absolute; left:64px; bottom:56px; display:flex; align-items:baseline; gap:16px;">
+      <span style="font-family:'Space Grotesk',sans-serif; font-size:20px; color:oklch(70% 0.12 55);">03</span>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:30px;">Marina Bay Sands Residences</div>
+        <div style="font-size:14px; color:oklch(75% 0 0); margin-top:4px;">Singapur</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVEAL PANEL 4 -->
+  <div data-reveal style="position:relative; height:100vh; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">
+    <div data-reveal-img style="position:absolute; inset:0; overflow:hidden; background:
+        repeating-linear-gradient(115deg, oklch(30% 0.03 70 / 0.4) 0 2px, transparent 2px 16px),
+        linear-gradient(150deg, oklch(25% 0.03 70), oklch(14% 0.01 70) 65%);
+        display:flex; align-items:center; justify-content:center;">
+      <span style="font-family:ui-monospace,monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(65% 0.01 70);">Foto — Burj Khalifa Residences, Dubái</span>
+    </div>
+    <div data-reveal-label style="position:absolute; left:64px; bottom:56px; display:flex; align-items:baseline; gap:16px;">
+      <span style="font-family:'Space Grotesk',sans-serif; font-size:20px; color:oklch(70% 0.12 55);">04</span>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:30px;">Burj Khalifa Residences</div>
+        <div style="font-size:14px; color:oklch(75% 0 0); margin-top:4px;">Dubái, EAU</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVEAL PANEL 5 -->
+  <div data-reveal style="position:relative; height:100vh; display:flex; align-items:center; justify-content:center; margin-bottom:2px;">
+    <div data-reveal-img style="position:absolute; inset:0; overflow:hidden; background:
+        repeating-linear-gradient(115deg, oklch(30% 0.02 250 / 0.4) 0 2px, transparent 2px 16px),
+        linear-gradient(150deg, oklch(24% 0.02 250), oklch(14% 0.01 250) 65%);
+        display:flex; align-items:center; justify-content:center;">
+      <span style="font-family:ui-monospace,monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(65% 0.01 250);">Foto — Central Park Tower, Nueva York</span>
+    </div>
+    <div data-reveal-label style="position:absolute; left:64px; bottom:56px; display:flex; align-items:baseline; gap:16px;">
+      <span style="font-family:'Space Grotesk',sans-serif; font-size:20px; color:oklch(70% 0.12 55);">05</span>
+      <div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:30px;">Central Park Tower</div>
+        <div style="font-size:14px; color:oklch(75% 0 0); margin-top:4px;">Nueva York, Estados Unidos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div style="display:flex; justify-content:space-between; padding:90px 64px; max-width:1200px; margin:0 auto; border-top:1px solid oklch(28% 0 0); border-bottom:1px solid oklch(28% 0 0);">
+    <div style="text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:40px; color:oklch(70% 0.12 55);">6</div><div style="font-size:13px; letter-spacing:0.05em; text-transform:uppercase; color:oklch(70% 0 0); margin-top:8px;">continentes</div></div>
+    <div style="text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:40px; color:oklch(70% 0.12 55);">1.200+</div><div style="font-size:13px; letter-spacing:0.05em; text-transform:uppercase; color:oklch(70% 0 0); margin-top:8px;">unidades relevadas</div></div>
+    <div style="text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:40px; color:oklch(70% 0.12 55);">Diaria</div><div style="font-size:13px; letter-spacing:0.05em; text-transform:uppercase; color:oklch(70% 0 0); margin-top:8px;">actualización de datos</div></div>
+  </div>
+
+  <!-- FEATURE 1 -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:80px; padding:150px 64px; max-width:1400px; margin:0 auto;">
+    <div data-parallax-wrap style="position:relative; aspect-ratio:4/3; overflow:hidden; border-radius:12px;">
+      <div data-parallax-img style="position:absolute; top:-10%; left:0; right:0; height:120%; background:
+          repeating-linear-gradient(115deg, oklch(30% 0.02 250 / 0.4) 0 2px, transparent 2px 16px),
+          linear-gradient(150deg, oklch(24% 0.02 250), oklch(15% 0.01 250) 65%);
+          display:flex; align-items:center; justify-content:center;">
+        <span style="font-family:ui-monospace,monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(65% 0.01 250);">Recorrido 3D — interior</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(70% 0.12 55); margin-bottom:16px;">01</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:34px; margin-bottom:18px;">Recorridos 3D interactivos</div>
+      <div style="font-size:16.5px; line-height:1.65; color:oklch(75% 0 0); max-width:440px;">Caminá cada unidad, piso y vista antes de firmar, con reconstrucción fiel a los planos finales.</div>
+    </div>
+  </div>
+
+  <!-- FEATURE 2 -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:80px; padding:0 64px 150px; max-width:1400px; margin:0 auto;">
+    <div style="order:2;">
+      <div style="font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(70% 0.12 55); margin-bottom:16px;">02</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:34px; margin-bottom:18px;">Video de obra semanal</div>
+      <div style="font-size:16.5px; line-height:1.65; color:oklch(75% 0 0); max-width:440px;">Seguí el avance real de la construcción con registro en video, mes a mes.</div>
+    </div>
+    <div data-parallax-wrap style="order:1; position:relative; aspect-ratio:4/3; overflow:hidden; border-radius:12px;">
+      <div data-parallax-img style="position:absolute; top:-10%; left:0; right:0; height:120%; background:
+          repeating-linear-gradient(115deg, oklch(30% 0.03 70 / 0.4) 0 2px, transparent 2px 16px),
+          linear-gradient(150deg, oklch(25% 0.03 70), oklch(14% 0.01 70) 65%);
+          display:flex; align-items:center; justify-content:center;">
+        <span style="font-family:ui-monospace,monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(65% 0.01 70);">Video de obra — semana 24</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE 3 -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:80px; padding:0 64px 160px; max-width:1400px; margin:0 auto;">
+    <div data-parallax-wrap style="position:relative; aspect-ratio:4/3; overflow:hidden; border-radius:12px;">
+      <div data-parallax-img style="position:absolute; top:-10%; left:0; right:0; height:120%; background:
+          repeating-linear-gradient(115deg, oklch(32% 0.03 145 / 0.4) 0 2px, transparent 2px 16px),
+          linear-gradient(150deg, oklch(24% 0.03 145), oklch(14% 0.01 145) 65%);
+          display:flex; align-items:center; justify-content:center;">
+        <span style="font-family:ui-monospace,monospace; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:oklch(65% 0.01 145);">Panel de disponibilidad — vivo</span>
+      </div>
+    </div>
+    <div>
+      <div style="font-size:12.5px; letter-spacing:0.1em; text-transform:uppercase; color:oklch(70% 0.12 55); margin-bottom:16px;">03</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:34px; margin-bottom:18px;">Disponibilidad en vivo</div>
+      <div style="font-size:16.5px; line-height:1.65; color:oklch(75% 0 0); max-width:440px;">Unidades, pisos y precios sincronizados directo desde la desarrolladora.</div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div style="padding:130px 64px; background:oklch(15% 0 0);">
+    <div style="max-width:1300px; margin:0 auto;">
+      <div style="font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:oklch(70% 0.12 55); margin-bottom:18px;">Cómo funciona</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:40px; margin-bottom:70px;">Tres pasos, disponibilidad real.</div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:56px;">
+        <div style="border-top:1px solid oklch(35% 0 0); padding-top:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:24px; color:oklch(70% 0.12 55); margin-bottom:14px;">01</div><div style="font-size:19px; font-weight:600; margin-bottom:10px;">Elegí zona y presupuesto</div><div style="font-size:15px; line-height:1.6; color:oklch(72% 0 0);">Filtrá entre proyectos activos en pre-venta según ciudad y rango de inversión.</div></div>
+        <div style="border-top:1px solid oklch(35% 0 0); padding-top:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:24px; color:oklch(70% 0.12 55); margin-bottom:14px;">02</div><div style="font-size:19px; font-weight:600; margin-bottom:10px;">Recorré el proyecto en 3D</div><div style="font-size:15px; line-height:1.6; color:oklch(72% 0 0);">Navegá cada unidad como si ya estuvieras ahí, con vistas y terminaciones reales.</div></div>
+        <div style="border-top:1px solid oklch(35% 0 0); padding-top:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:24px; color:oklch(70% 0.12 55); margin-bottom:14px;">03</div><div style="font-size:19px; font-weight:600; margin-bottom:10px;">Reservá con disponibilidad real</div><div style="font-size:15px; line-height:1.6; color:oklch(72% 0 0);">Confirmá tu unidad sabiendo exactamente qué queda disponible, hoy.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVAILABILITY -->
+  <div style="padding:150px 64px; max-width:1400px; margin:0 auto;">
+    <div style="font-size:12.5px; letter-spacing:0.16em; text-transform:uppercase; color:oklch(70% 0.12 55); margin-bottom:18px;">Catálogo activo</div>
+    <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:40px; margin-bottom:64px;">Disponibilidad en pre-venta</div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:40px;">
+      <div>
+        <div style="aspect-ratio:4/3; border-radius:10px; overflow:hidden; margin-bottom:20px; background:
+            repeating-linear-gradient(115deg, oklch(30% 0.02 250 / 0.4) 0 2px, transparent 2px 16px),
+            linear-gradient(150deg, oklch(24% 0.02 250), oklch(15% 0.01 250) 65%);
+            display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:ui-monospace,monospace; font-size:11.5px; text-transform:uppercase; color:oklch(65% 0.01 250);">Render — Torre Altamar</span>
+        </div>
+        <div style="font-size:19px; font-weight:600; margin-bottom:6px;">Torre Altamar</div>
+        <div style="font-size:13.5px; color:oklch(65% 0 0); margin-bottom:14px;">Puerto Madero, Buenos Aires</div>
+        <div style="display:flex; justify-content:space-between; font-size:14px;"><span>Desde USD 145.000</span><span style="color:oklch(70% 0.12 55);">14 disponibles</span></div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/3; border-radius:10px; overflow:hidden; margin-bottom:20px; background:
+            repeating-linear-gradient(115deg, oklch(32% 0.03 145 / 0.4) 0 2px, transparent 2px 16px),
+            linear-gradient(150deg, oklch(24% 0.03 145), oklch(14% 0.01 145) 65%);
+            display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:ui-monospace,monospace; font-size:11.5px; text-transform:uppercase; color:oklch(65% 0.01 145);">Render — Distrito Norte</span>
+        </div>
+        <div style="font-size:19px; font-weight:600; margin-bottom:6px;">Distrito Norte</div>
+        <div style="font-size:13.5px; color:oklch(65% 0 0); margin-bottom:14px;">Zapopan, Guadalajara</div>
+        <div style="display:flex; justify-content:space-between; font-size:14px;"><span>Desde USD 98.000</span><span style="color:oklch(70% 0.12 55);">8 disponibles</span></div>
+      </div>
+      <div>
+        <div style="aspect-ratio:4/3; border-radius:10px; overflow:hidden; margin-bottom:20px; background:
+            repeating-linear-gradient(115deg, oklch(30% 0.03 70 / 0.4) 0 2px, transparent 2px 16px),
+            linear-gradient(150deg, oklch(25% 0.03 70), oklch(14% 0.01 70) 65%);
+            display:flex; align-items:center; justify-content:center;">
+          <span style="font-family:ui-monospace,monospace; font-size:11.5px; text-transform:uppercase; color:oklch(65% 0.01 70);">Render — Cielo Polanco</span>
+        </div>
+        <div style="font-size:19px; font-weight:600; margin-bottom:6px;">Cielo Nuevo Polanco</div>
+        <div style="font-size:13.5px; color:oklch(65% 0 0); margin-bottom:14px;">Ciudad de México</div>
+        <div style="display:flex; justify-content:space-between; font-size:14px;"><span>Desde USD 210.000</span><span style="color:oklch(70% 0.12 55);">Últimas 5</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING CTA -->
+  <div style="position:relative; height:80vh; display:flex; align-items:center; justify-content:center; overflow:hidden;">
+    <div data-parallax-wrap style="position:absolute; inset:0;">
+      <div data-parallax-img style="position:absolute; top:-15%; left:0; right:0; height:130%; background:
+          repeating-linear-gradient(115deg, oklch(30% 0.02 250 / 0.4) 0 2px, transparent 2px 16px),
+          linear-gradient(150deg, oklch(24% 0.02 250), oklch(12% 0.01 250) 65%);
+          display:flex; align-items:center; justify-content:center;">
+        <span style="font-family:ui-monospace,monospace; font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(60% 0.01 250);">Foto — obra en construcción, vista aérea</span>
+      </div>
+    </div>
+    <div style="position:absolute; inset:0; background:oklch(12% 0 0 / 0.55);"></div>
+    <div style="position:relative; text-align:center; padding:0 64px;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:52px; margin-bottom:34px;">Sumá tu proyecto al recorrido.</div>
+      <div style="display:inline-block; padding:18px 40px; background:oklch(70% 0.12 55); color:oklch(12% 0 0); font-size:15px; font-weight:600; border-radius:100px;">Solicitar acceso</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="padding:70px 64px 50px; border-top:1px solid oklch(28% 0 0);">
+    <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:40px; max-width:1400px; margin:0 auto 60px;">
+      <div>
+        <img src="assets/ruum_logo_black.png" alt="ruum" style="height:24px; width:auto; filter:invert(1); margin-bottom:18px;">
+        <div style="font-size:14px; line-height:1.6; color:oklch(65% 0 0); max-width:280px;">Recorridos 3D y disponibilidad en tiempo real para proyectos en pre-venta de todo el mundo.</div>
+      </div>
+      <div>
+        <div style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(55% 0 0); margin-bottom:16px;">Producto</div>
+        <div style="display:flex; flex-direction:column; gap:12px; font-size:14.5px; color:oklch(80% 0 0);"><span>Proyectos</span><span>Recorridos 3D</span><span>Precios</span></div>
+      </div>
+      <div>
+        <div style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(55% 0 0); margin-bottom:16px;">Compañía</div>
+        <div style="display:flex; flex-direction:column; gap:12px; font-size:14.5px; color:oklch(80% 0 0);"><span>Nosotros</span><span>Contacto</span></div>
+      </div>
+      <div>
+        <div style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:oklch(55% 0 0); margin-bottom:16px;">Legal</div>
+        <div style="display:flex; flex-direction:column; gap:12px; font-size:14.5px; color:oklch(80% 0 0);"><span>Privacidad</span><span>Términos</span></div>
+      </div>
+    </div>
+    <div style="max-width:1400px; margin:0 auto; padding-top:30px; border-top:1px solid oklch(24% 0 0); font-size:13px; color:oklch(55% 0 0);">© 2026 ruum. Todos los derechos reservados.</div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  setRoot = (el) => {
+    this.rootEl = el;
+  };
+
+  setupScroll() {
+    if (!this.rootEl || !window.gsap || !window.ScrollTrigger) return;
+    if (this._scrollReady) return;
+    this._scrollReady = true;
+
+    const gsap = window.gsap;
+    gsap.registerPlugin(window.ScrollTrigger);
+    const root = this.rootEl;
+
+    const heroImg = root.querySelector('[data-hero-img]');
+    if (heroImg) {
+      gsap.to(heroImg, {
+        yPercent: 16,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: heroImg.closest('[data-hero]'),
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    }
+
+    root.querySelectorAll('[data-reveal]').forEach((panel) => {
+      const img = panel.querySelector('[data-reveal-img]');
+      const label = panel.querySelector('[data-reveal-label]');
+      if (img) {
+        gsap.fromTo(
+          img,
+          { clipPath: 'inset(6% round 28px)', scale: 0.88 },
+          {
+            clipPath: 'inset(0% round 0px)',
+            scale: 1,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: panel,
+              start: 'top bottom',
+              end: 'top center',
+              scrub: true
+            }
+          }
+        );
+      }
+      if (label) {
+        gsap.fromTo(
+          label,
+          { opacity: 0, y: 36 },
+          {
+            opacity: 1,
+            y: 0,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: panel,
+              start: 'top 55%',
+              end: 'top 15%',
+              scrub: true
+            }
+          }
+        );
+      }
+    });
+
+    root.querySelectorAll('[data-parallax-wrap]').forEach((wrap) => {
+      const img = wrap.querySelector('[data-parallax-img]');
+      if (!img) return;
+      gsap.to(img, {
+        yPercent: -14,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: wrap,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true
+        }
+      });
+    });
+
+    window.ScrollTrigger.refresh();
+  }
+
+  componentDidMount() {
+    let tries = 0;
+    const tryInit = () => {
+      tries += 1;
+      if (window.gsap && window.ScrollTrigger) {
+        this.setupScroll();
+      } else if (tries < 40) {
+        this._initTimer = setTimeout(tryInit, 100);
+      }
+    };
+    tryInit();
+  }
+
+  componentWillUnmount() {
+    if (this._initTimer) clearTimeout(this._initTimer);
+    if (window.ScrollTrigger) {
+      window.ScrollTrigger.getAll().forEach((t) => t.kill());
+    }
+  }
+
+  renderVals() {
+    return {
+      setRoot: this.setRoot
+    };
+  }
+}
+
+</script>
+</body>
+</html>
